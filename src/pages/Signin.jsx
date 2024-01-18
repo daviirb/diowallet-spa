@@ -1,3 +1,4 @@
+import { Link, Outlet } from "react-router-dom";
 import logo from "../assets/logo.png";
 import Button from "../components/Button";
 import Input from "../components/Input";
@@ -11,7 +12,13 @@ export default function Signin() {
         <Input type="password" placeholder="Password" />
         <Button type="submit" text="SIGNIN" />
       </form>
-      <p className="text-white">Ainda não tem uma conta? Registre-se</p>
+      <p className="text-white">
+        Ainda não tem uma conta?{" "}
+        <Link to="/signup" className="text-sky-400 hover:text-sky-600">
+          Registre-se
+        </Link>
+      </p>
+      <Outlet />
     </div>
   );
 }
