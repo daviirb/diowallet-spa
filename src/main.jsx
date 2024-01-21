@@ -5,6 +5,7 @@ import "./index.css";
 import Signin from "./pages/Signin.jsx";
 import Signup from "./pages/Signup.jsx";
 import Home from "./pages/Home.jsx";
+import NewTransaction from "./pages/newTransaction.jsx";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+  },
+  {
+    path: "/transaction/:type",
+    element: <NewTransaction />,
   },
 ]);
 
