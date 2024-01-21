@@ -2,13 +2,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { BiArrowBack } from "react-icons/bi";
 import { Link, Outlet } from "react-router-dom";
-import logo from "../assets/logo.png";
 import Button from "../components/Button";
 import ErrorInput from "../components/ErrorInput";
 import Input from "../components/Input";
 import { signupSchema } from "../schemas/SignupSchema";
 import { signup } from "../services/user";
 import { useNavigate } from "react-router-dom";
+import { FaGoogleWallet } from "react-icons/fa";
 
 export default function Signup() {
   const {
@@ -30,7 +30,7 @@ export default function Signup() {
 
   return (
     <div className="flex flex-col items-center justify-around rounded p-8 w-[32rem] h-[32rem] relative bg-zinc-900 ">
-      <img src={logo} alt="" className="w-44" />
+      <FaGoogleWallet className="text-[8rem] text-sky-500" />
       <Link to="/signin">
         <BiArrowBack className="absolute top-3 left-3 text-white text-xl hover:text-sky-600" />
       </Link>

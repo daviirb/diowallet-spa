@@ -1,5 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
-import logo from "../assets/logo.png";
+import { FaGoogleWallet } from "react-icons/fa";
 import Button from "../components/Button";
 import Input from "../components/Input";
 import { useForm } from "react-hook-form";
@@ -9,8 +9,12 @@ import { signinSchema } from "../schemas/SigninSchema";
 import { useNavigate } from "react-router-dom";
 import { signin } from "../services/user";
 import Cookies from "js-cookie";
+import { useEffect } from "react";
 
 export default function Signin() {
+  useEffect(() => {
+    Cookies.remove("token");
+  });
   const {
     register,
     handleSubmit,
@@ -31,7 +35,7 @@ export default function Signin() {
 
   return (
     <div className="flex flex-col items-center justify-around rounded p-8 w-[32rem] h-[32rem] bg-zinc-900 ">
-      <img src={logo} alt="" className="w-44" />
+      <FaGoogleWallet className="text-[8rem] text-sky-500" />
       <form
         onSubmit={handleSubmit(handleSubmitForm)}
         className="flex flex-col justify-center w-full gap-2"
