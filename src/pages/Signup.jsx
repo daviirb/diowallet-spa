@@ -7,6 +7,8 @@ import Button from "../components/Button";
 import ErrorInput from "../components/ErrorInput";
 import Input from "../components/Input";
 import { signupSchema } from "../schemas/SignupSchema";
+import { signup } from "../services/user";
+import { useNavigate } from "react-router-dom";
 
 export default function Signup() {
   const {
@@ -15,8 +17,15 @@ export default function Signup() {
     formState: { errors },
   } = useForm({ resolver: zodResolver(signupSchema) });
 
-  function handleSubmitForm(data) {
-    console.log(data);
+  const navigate = useNavigate();
+
+  async function handleSubmitForm(data) {
+    try {
+      await signup(data);
+      navigate("/signin");
+    } catch (error) {
+      console.log(error.response.data);
+    }
   }
 
   return (
